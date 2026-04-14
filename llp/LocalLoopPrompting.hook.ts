@@ -154,9 +154,7 @@ function handlePass(result: LLPResult, original: string): void {
     `Rewrite:  ${rewritten.slice(0, 60)}${rewritten.length > 60 ? '…' : ''}`,
   ]);
 
-  console.log(JSON.stringify({
-    hookSpecificOutput: { updatedUserPrompt: rewritten },
-  }));
+  console.log(JSON.stringify({ updatedUserPrompt: rewritten }));
 }
 
 function handleClarify(result: LLPResult): void {
@@ -172,9 +170,7 @@ function handleClarify(result: LLPResult): void {
   ]);
 
   const context = `[LLP: Before executing, ask the user to clarify these specific points, then proceed:\n${points.map(p => `• ${p}`).join('\n')}]`;
-  console.log(JSON.stringify({
-    hookSpecificOutput: { additionalContext: context },
-  }));
+  console.log(JSON.stringify({ additionalContext: context }));
 }
 
 function handleBlock(result: LLPResult): void {
